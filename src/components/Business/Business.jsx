@@ -1,4 +1,5 @@
 import React from "react";
+import styles from "./Business.module.css";
 
 const Business = () => {
   const business = {
@@ -15,21 +16,25 @@ const Business = () => {
   };
   return (
     <React.Fragment>
-      <div className="preview">
-        <img src={business.imageSrc} alt="business" />
-      </div>
-      <div className="info">
-        <p className="name">{business.name}</p>
-        <div className="address-container">
-          <p className="address">{business.address}</p>
-          <p className="city">{business.city}</p>
-          <p className="state">{business.state}</p>
-          <p className="zipcode">{business.zipCode}</p>
+      <div className={styles.Business}>
+        <div className={styles.imageContainer}>
+          <img src={business.imageSrc} alt="" />
         </div>
-        <div className="category-container">
-          <p className="category">{business.category}</p>
-          <p className="rating">{business.rating} stars</p>
-          <p className="review-count">{business.reviewCount} reviews</p>
+        <p className={styles.name}>{business.name}</p>
+        <div className={styles.infoContainer}>
+          <div className={styles.addressContainer}>
+            <p className={styles.address}>{business.address}</p>
+            <p className={styles.city}>{business.city}</p>
+            <div className={styles.stateZipcodeContainer}>
+              <p className={styles.state}>{business.state}</p>
+              <p className={styles.zipcode}>{business.zipCode}</p>
+            </div>
+          </div>
+          <div className={styles.categoryContainer}>
+            <p className={styles.category}>{business.category}</p>
+            <p className={styles.rating}>{business.rating} stars</p>
+            <p className={styles.reviewCount}>{business.reviewCount} reviews</p>
+          </div>
         </div>
       </div>
     </React.Fragment>

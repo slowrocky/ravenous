@@ -1,0 +1,82 @@
+.Business {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-width: 25%;
+  padding: 16px;
+  margin: 0 10px;
+
+  .name {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: left;
+    margin: 5px 0;
+  }
+
+  .imageContainer {
+    display: flex;
+    justify-content: center;
+
+    img {
+      min-width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+    }
+  }
+
+  .infoContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .addressContainer {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+      align-items: left;
+
+      .address {
+        margin: 0;
+      }
+
+      .city {
+        margin: 0;
+      }
+
+      .stateZipcodeContainer {
+        display: flex;
+        flex-direction: row;
+
+        .state {
+          margin: 0 5px 0 0;
+        }
+        .zipcode {
+          margin: 0 5px 0 0;
+        }
+      }
+      
+    }
+
+    .categoryContainer {
+      display: flex;
+      flex-direction: column;
+      align-items: right;
+      text-align: right;
+
+      .category {
+        text-transform: uppercase;
+        color: goldenrod;
+        font-weight: bold;
+        margin: 0;
+      }
+      .rating {
+        color: goldenrod;
+        font-weight: bold;
+        margin: 0;
+      }
+      .reviewCount {
+        margin: 0;
+      }
+    }
+  }
+}

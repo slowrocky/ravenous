@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import styles from "./SearchBar.module.css";
 
 const SearchBar = ({ onSearch }) => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -25,34 +26,35 @@ const SearchBar = ({ onSearch }) => {
 
   return (
     <React.Fragment>
-      <div className="SearchBar-fields">
-        <input
-          placeholder="Search Businesses"
-          onChange={(e) => setSearchTerm(e.target.value)}
-        />
-        <input
-          placeholder="Location"
-          onChange={(e) => setLocation(e.target.value)}
-        />
-      </div>
-      <div className="SearchBar-submit">
+      <div className={styles.SearchBar}>
+        <div className={styles.sortByContainer}>
+          <ul>
+            {Object.keys(sortByOptions).map((sortByOption) => {
+              let sortByOptionValue = sortByOptions[sortByOption];
+              return (
+                <li
+                  key={sortByOptionValue}
+                  className={sortBy === sortByOptionValue ? "active" : ""}
+                  onClick={() => handleSortByChange(sortByOptionValue)}
+                >
+                  {sortByOption}
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+
+        <div className={styles.inputsContainer}>
+          <input
+            placeholder="Search Businesses"
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+          <input
+            placeholder="Location"
+            onChange={(e) => setLocation(e.target.value)}
+          />
+        </div>
         <button onClick={handleSearch}>Search</button>
-      </div>
-      <div className="SearchBar-sort-options">
-        <ul>
-          {Object.keys(sortByOptions).map((sortByOption) => {
-            let sortByOptionValue = sortByOptions[sortByOption];
-            return (
-              <li
-                key={sortByOptionValue}
-                className={sortBy === sortByOptionValue ? "active" : ""}
-                onClick={() => handleSortByChange(sortByOptionValue)}
-              >
-                {sortByOption}
-              </li>
-            );
-          })}
-        </ul>
       </div>
     </React.Fragment>
   );
